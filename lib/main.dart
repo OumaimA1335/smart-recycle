@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'package:smartrecycle/Features/auth/presentation/pages/register.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:smartrecycle/infrastructure/navigation.dart';
+import 'package:smartrecycle/infrastructure/routes.dart';
+
+void main() async {
+  var initialRoute = await Routes.initialRoute;
+  runApp(MyApp(initialRoute: initialRoute));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String initialRoute;
+  const MyApp({required this.initialRoute, super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: const Register(),
+      initialRoute: initialRoute,
+      getPages: Nav.routes,
     );
   }
 }
-

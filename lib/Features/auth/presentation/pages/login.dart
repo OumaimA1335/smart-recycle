@@ -1,7 +1,9 @@
 import "package:flutter/material.dart";
+import "package:get/state_manager.dart";
+import "package:smartrecycle/Features/auth/presentation/controllers/login_controller.dart";
 import "package:smartrecycle/Features/auth/presentation/widgets/form_login.dart";
 
-class Login extends StatelessWidget {
+class Login extends GetView<LoginController> {
   const Login({Key? key}) : super(key: key);
 
   @override
@@ -21,7 +23,7 @@ class Login extends StatelessWidget {
               children: [
                 Image.asset('assets/images/eau.png', width: 100, height: 50),
                 SizedBox(height: 10),
-                Text("Welcome Back", style: TextStyle(color: Colors.black)),
+                Text("Smart Recycle", style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500)),
                 Text(
                   "Sign in to continue recycling",
                   style: TextStyle(color: Colors.grey.shade500),
@@ -62,14 +64,17 @@ class Login extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 10,),
-                     Text(
-                      "Create an account",
-                      style: TextStyle(
-                        color:Colors.cyan,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15,
-                      ),
-                    ),
+                     InkWell(
+                      onTap: controller.gotoregister,
+                       child: Text(
+                        "Create an account",
+                        style: TextStyle(
+                          color:Colors.cyan,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                        ),
+                                           ),
+                     ),
 
                   ],
                 ),
