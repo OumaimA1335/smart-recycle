@@ -35,6 +35,9 @@ class HomeController extends GetxController {
       case 0:
         Get.toNamed(Routes.addAds);
         break;
+      case 1:
+        Get.toNamed(Routes.ads);
+        break;
       default:
         break;
     }

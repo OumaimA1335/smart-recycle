@@ -7,4 +7,5 @@ class Routes {
   static const register = '/register';
   static const home = '/home';
   static const addAds = '/add_ads';
+  static const ads = '/ads';
 }

@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:smartrecycle/Features/Ads/presentation/widgets/add_ads_form.dart';
+import 'package:get/state_manager.dart';
+import 'package:smartrecycle/Features/Ads/presentation/controllers/my_ads_controller.dart';
+import 'package:smartrecycle/Features/Ads/presentation/widgets/my_ads_card.dart';
 
-class AddAds extends StatelessWidget {
-  const AddAds({Key? key}) : super(key: key);
+class MyAds extends GetView<MyAdsController> {
+  const MyAds({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.cyan
-        ),
+        iconTheme: IconThemeData(color: Colors.cyan),
         backgroundColor: Colors.white,
+        elevation: 0,
+         surfaceTintColor: Colors.white,
         title: Text(
           'Back',
           style: TextStyle(
@@ -23,8 +25,8 @@ class AddAds extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.all(20),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +48,21 @@ class AddAds extends StatelessWidget {
                   fontWeight: FontWeight.w300,
                 ),
               ),
-              AddAdsForm(),
+              SizedBox(height: 20),
+              ListView.builder(
+            
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: controller.myads.length,
+                itemBuilder: (context, index) {
+                  return MyAdsCard(
+                    quantity: controller.myads[index]['quantity'],
+                    price: controller.myads[index]['price'],
+                    views: controller.myads[index]['views'],
+                    requests: controller.myads[index]['requests'],
+                  );
+                },
+              ),
             ],
           ),
         ),

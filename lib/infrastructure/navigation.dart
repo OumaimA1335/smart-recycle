@@ -1,6 +1,7 @@
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:smartrecycle/Features/Ads/presentation/pages/add_ads.dart';
 import 'package:smartrecycle/Features/Ads/presentation/pages/home.dart';
+import 'package:smartrecycle/Features/Ads/presentation/pages/my_ads.dart';
 import 'package:smartrecycle/Features/auth/presentation/pages/login.dart';
 import 'package:smartrecycle/Features/auth/presentation/pages/register.dart';
 import 'package:smartrecycle/infrastructure/navigation/Bindings/controllers_bindings.dart';
@@ -27,6 +28,11 @@ class Nav {
       name: Routes.addAds,
       page: () => const AddAds(),
       binding:AddAdsControllerBinding(),
+    ),
+     GetPage(
+      name: Routes.ads,
+      page: () => const MyAds(),
+      binding:MyAdsControllerBinding(),
     ),
     
   ];
