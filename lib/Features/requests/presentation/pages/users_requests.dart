@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:smartrecycle/Features/Ads/presentation/controllers/my_ads_controller.dart';
-import 'package:smartrecycle/Features/Ads/presentation/widgets/my_ads_card.dart';
+import 'package:get/get.dart';
+import 'package:smartrecycle/Features/requests/presentation/controllers/users_requests_controller.dart';
+import 'package:smartrecycle/Features/requests/presentation/widgets/user_card_requests.dart';
 
-class MyAds extends GetView<MyAdsController> {
-  const MyAds({Key? key}) : super(key: key);
+class UsersRequests extends GetView<UsersRequestsController> {
+  const UsersRequests({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Get.put(UsersRequestsController());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.cyan),
         backgroundColor: Colors.white,
         elevation: 0,
-         surfaceTintColor: Colors.white,
+        surfaceTintColor: Colors.white,
         title: Text(
           'Back',
           style: TextStyle(
@@ -26,13 +27,13 @@ class MyAds extends GetView<MyAdsController> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'My Ads',
+                'Requests',
                 style: TextStyle(
                   color: Colors.cyan,
                   fontSize: 18,
@@ -41,7 +42,7 @@ class MyAds extends GetView<MyAdsController> {
               ),
               SizedBox(height: 5),
               Text(
-                'Share your bottles with organizations',
+                'Manage Your bottles requests',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 15,
@@ -52,13 +53,12 @@ class MyAds extends GetView<MyAdsController> {
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: controller.myads.length,
+                itemCount: controller.requests.length,
                 itemBuilder: (context, index) {
-                  return MyAdsCard(
-                    quantity: controller.myads[index]['quantity'],
-                    price: controller.myads[index]['price'],
-                    views: controller.myads[index]['views'],
-                    requests: controller.myads[index]['requests'],
+                  return UserCardRequests(
+                    name: controller.requests[index]['name'],
+                    time: controller.requests[index]['timePublish'],
+                    status: controller.requests[index]['status'],
                   );
                 },
               ),

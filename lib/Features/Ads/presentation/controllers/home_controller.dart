@@ -38,6 +38,12 @@ class HomeController extends GetxController {
       case 1:
         Get.toNamed(Routes.ads);
         break;
+      case 2:
+        Get.toNamed(Routes.organizationsRequets);
+        break;
+      case 3:
+        Get.toNamed(Routes.userRequests);
+        break;
       default:
         break;
     }

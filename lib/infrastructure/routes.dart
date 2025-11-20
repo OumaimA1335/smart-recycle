@@ -8,4 +8,6 @@ class Routes {
   static const home = '/home';
   static const addAds = '/add_ads';
   static const ads = '/ads';
+  static const userRequests = '/user_requests';
+  static const organizationsRequets = '/organization_requests';
 }

@@ -4,6 +4,8 @@ import 'package:smartrecycle/Features/Ads/presentation/pages/home.dart';
 import 'package:smartrecycle/Features/Ads/presentation/pages/my_ads.dart';
 import 'package:smartrecycle/Features/auth/presentation/pages/login.dart';
 import 'package:smartrecycle/Features/auth/presentation/pages/register.dart';
+import 'package:smartrecycle/Features/requests/presentation/pages/organizations_requests.dart';
+import 'package:smartrecycle/Features/requests/presentation/pages/users_requests.dart';
 import 'package:smartrecycle/infrastructure/navigation/Bindings/controllers_bindings.dart';
 import 'package:smartrecycle/infrastructure/routes.dart';
 
@@ -33,6 +35,16 @@ class Nav {
       name: Routes.ads,
       page: () => const MyAds(),
       binding:MyAdsControllerBinding(),
+    ),
+     GetPage(
+      name: Routes.organizationsRequets,
+      page: () => const OrganizationsRequests(),
+      binding:OrganizationsRequestsControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.userRequests,
+      page: () => const UsersRequests(),
+      binding:UserRequestsControllerBinding(),
     ),
     
   ];
