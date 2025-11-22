@@ -2,8 +2,12 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:smartrecycle/Features/Ads/presentation/pages/add_ads.dart';
 import 'package:smartrecycle/Features/Ads/presentation/pages/home.dart';
 import 'package:smartrecycle/Features/Ads/presentation/pages/my_ads.dart';
+import 'package:smartrecycle/Features/Rate/presentation/pages/rate.dart';
 import 'package:smartrecycle/Features/auth/presentation/pages/login.dart';
+import 'package:smartrecycle/Features/auth/presentation/pages/profile.dart';
 import 'package:smartrecycle/Features/auth/presentation/pages/register.dart';
+import 'package:smartrecycle/Features/points/presentation/pages/points.dart';
+import 'package:smartrecycle/Features/requests/presentation/pages/location.dart';
 import 'package:smartrecycle/Features/requests/presentation/pages/organizations_requests.dart';
 import 'package:smartrecycle/Features/requests/presentation/pages/users_requests.dart';
 import 'package:smartrecycle/infrastructure/navigation/Bindings/controllers_bindings.dart';
@@ -46,6 +50,28 @@ class Nav {
       page: () => const UsersRequests(),
       binding:UserRequestsControllerBinding(),
     ),
+      GetPage(
+      name: Routes.loaction,
+      page: () => const Location(),
+      binding:LocationControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.rate,
+      page: () => const Rate(),
+      binding:RateControllerBindings(),
+    ),
+      GetPage(
+      name: Routes.points,
+      page: () => const Points(),
+      binding:PointsControllerBindings(),
+    ),
+     GetPage(
+      name: Routes.profile,
+      page: () => const Profile(),
+      binding:ProfileControllerBindings(),
+    ),
+
+
     
   ];
 }

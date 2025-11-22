@@ -5,3 +5,7 @@ export 'package:smartrecycle/infrastructure/navigation/Bindings/home_controller_
 export 'package:smartrecycle/infrastructure/navigation/Bindings/my_ads_controller_binding.dart';
 export 'package:smartrecycle/infrastructure/navigation/Bindings/organizations_requests_controller_binding.dart';
 export 'package:smartrecycle/infrastructure/navigation/Bindings/user_requests_controller_binding.dart';
+export 'package:smartrecycle/infrastructure/navigation/Bindings/location_controller_binding.dart';
+export 'package:smartrecycle/infrastructure/navigation/Bindings/rate_controller_bindings.dart';
+export 'package:smartrecycle/infrastructure/navigation/Bindings/points_controller_bindings.dart';
+export 'package:smartrecycle/infrastructure/navigation/Bindings/profile_controller_bindings.dart';

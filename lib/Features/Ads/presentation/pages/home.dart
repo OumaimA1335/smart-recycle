@@ -47,6 +47,9 @@ class Home extends GetView<HomeController> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedItemColor: Colors.cyan,
+        onTap: (value) {
+          controller.switchnavigationbar(value);
+        },
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),

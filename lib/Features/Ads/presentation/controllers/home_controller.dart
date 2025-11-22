@@ -44,6 +44,25 @@ class HomeController extends GetxController {
       case 3:
         Get.toNamed(Routes.userRequests);
         break;
+      case 4:
+        Get.toNamed(Routes.points);
+        break;
+      default:
+        break;
+    }
+  }
+
+  void switchnavigationbar(index) {
+    switch (index) {
+      case 0:
+        Get.toNamed(Routes.home);
+        break;
+      case 1:
+        Get.toNamed(Routes.userRequests);
+        break;
+      case 2:
+        Get.toNamed(Routes.profile);
+        break;
       default:
         break;
     }

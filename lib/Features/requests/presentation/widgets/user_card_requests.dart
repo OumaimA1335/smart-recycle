@@ -10,7 +10,8 @@ class UserCardRequests extends GetView<UsersRequestsController> {
     required this.name,
     required this.time,
     required this.status,
-    Key? key}) : super(key: key);
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -94,94 +95,91 @@ class UserCardRequests extends GetView<UsersRequestsController> {
             ],
           ),
           SizedBox(height: 20),
-          Obx(
-            () => Row(
-              children: [
-                if (controller.requestStatus.value.toLowerCase() ==
-                    'pending') ...[
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.all(10),
-                      height: 40,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.white,
-                        border: Border.all(color: Colors.cyan),
-                      ),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Center(
-                          child: Text(
-                            "Accept",
-                            style: TextStyle(
-                              color: Colors.cyan,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 13,
-                            ),
+          Row(
+            children: [
+              if (status == 'pending') ...[
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.white,
+                      border: Border.all(color: Colors.cyan),
+                    ),
+                    child: InkWell(
+                      onTap: () {},
+                      child: Center(
+                        child: Text(
+                          "Accept",
+                          style: TextStyle(
+                            color: Colors.cyan,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13,
                           ),
                         ),
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.all(10),
-                      height: 40,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.white,
-                        border: Border.all(color: Colors.red),
-                      ),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Center(
-                          child: Text(
-                            "Decline",
-                            style: TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 13,
-                            ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.white,
+                      border: Border.all(color: Colors.red),
+                    ),
+                    child: InkWell(
+                      onTap: () {},
+                      child: Center(
+                        child: Text(
+                          "Decline",
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13,
                           ),
                         ),
                       ),
                     ),
                   ),
-                ] else ...[
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.all(10),
-                      height: 40,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
-                        border: Border.all(color: Colors.cyan),
-                        color: Colors.white,
-                      ),
-                      alignment: Alignment.center,
-                      child: InkWell(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.location_on_outlined,
+                ),
+              ] else ...[
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      border: Border.all(color: Colors.cyan),
+                      color: Colors.white,
+                    ),
+                    alignment: Alignment.center,
+                    child: InkWell(
+                      onTap: () {
+                        controller.sharelocation();
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.location_on_outlined, color: Colors.cyan),
+                          Text(
+                            'Share Location',
+                            style: TextStyle(
+                              fontSize: 13,
                               color: Colors.cyan,
+                              fontWeight: FontWeight.w500,
                             ),
-                            Text(
-                              'Share Location',
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.cyan,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ],
+                ),
               ],
-            ),
+            ],
           ),
         ],
       ),

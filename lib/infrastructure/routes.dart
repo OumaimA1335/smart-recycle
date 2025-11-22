@@ -10,4 +10,8 @@ class Routes {
   static const ads = '/ads';
   static const userRequests = '/user_requests';
   static const organizationsRequets = '/organization_requests';
+  static const loaction = '/location';
+  static const rate = '/rate';
+  static const points = '/points';
+  static const profile = '/profile';
 }
